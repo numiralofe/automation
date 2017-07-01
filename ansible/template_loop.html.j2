@@ -1,0 +1,13 @@
+//*** loop snip to template html code from ansible group_vars ***//
+
+{% for d in deployables|sort %}
+    <tr id="{{ d.application }}">
+      <td><a href="#{{ d.application }}">{{ d.application }}</a></td>
+      <td><a href="#{{ d.maven_filename }}">{{ d.maven_filename }}</a></td>
+      <td><a href="{{ envname }}-services.html#{{d.service}}">{{ d.service }}</a>
+      <td>{{ d.service_port }}</td>
+      <td>{{ domains[d.domain].zone }}</td>
+      <td class="{{ domains[d.domain].external }}">{{ domains[d.domain].external }}</td>
+      <td><a href="{{ envname }}-domains.html#{{ domains[d.domain].name }}">{{ domains[d.domain].domain }}</a></td>
+    </tr>
+{% endfor %}

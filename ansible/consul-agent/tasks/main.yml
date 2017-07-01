@@ -1,0 +1,23 @@
+---
+  - name : Create consul-agent install dir
+    file: path=/opt/consul state=directory
+
+  - name : Uncompress consul-agent agent
+    unarchive: src=consul_0.7.1.tar.gz dest=/opt/ copy=yes owner=root group=root
+
+  - name : Enable consul-agent configuration
+    template :
+      src   : "consul-agent-init.j2"
+      dest  : "/etc/init.d/consul-agent"
+      owner : root
+      mode  : 0744
+    when : ansible_os_family == "Debian"
+  - shell: systemctl daemon-reload
+  - shell: systemctl enable consul-agent
+
+  - name: start consul-agent
+    service:
+      name: consul-agent
+      state: started
+      enabled: yes
+    sudo: yes

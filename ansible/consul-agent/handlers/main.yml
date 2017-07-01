@@ -1,0 +1,8 @@
+---
+
+  - name: restart consul-agent
+    service:
+      name: consul-agent
+      state: restarted
+      enabled: yes
+    sudo: yes
