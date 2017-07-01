@@ -22,7 +22,7 @@ Edit the following files and set your credentials:
 
 * Deployment instructions
 
-Execute bootstrap.sh and pass as an argument a value to tag your enviorment.
+Execute bootstrap.sh and pass as an argument a value to tag your environment.
 
 * Documentation
 

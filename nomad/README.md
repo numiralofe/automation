@@ -5,7 +5,7 @@ Nomad is a tool for managing a cluster of machines and running applications on t
 
 ### What is this repository for? ###
 
-This repository is just a collection of code snips that i used and that might be helpful.
+This repository is just a collection of code snips that i used and that might be useful.
 
 ### Tips ###
 
