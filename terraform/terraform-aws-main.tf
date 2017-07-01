@@ -18,7 +18,7 @@ provider "aws" {
 }
 
 variable "aws_domain" {
-	default = "epgpay.com"
+	default = "mydomain.com"
 }
 
 variable "aws_domain_id" {
