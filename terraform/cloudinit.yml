@@ -1,0 +1,8 @@
+---
+
+  - roles :
+    - role : cloudinit
+    hosts :
+      - bastion
+    remote_user : ubuntu
+    sudo : True

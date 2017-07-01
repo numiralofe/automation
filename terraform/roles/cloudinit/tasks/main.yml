@@ -1,0 +1,41 @@
+- name: Install ansible repo
+  apt_repository:
+    repo: 'ppa:ansible/ansible'
+
+- name: Update apt cache
+  sudo: yes
+  apt: update_cache=yes
+
+- name: Install ansible packages
+  sudo: yes
+  apt: pkg={{ item }} state=present update_cache=yes
+  with_items:
+    - ansible
+    - python
+    - python-apt
+    - nginx
+    - sshguard
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+
+- name : Copy over sshguard whitelist template.
+  template :
+    src   : "whitelist"
+    dest  : "/etc/sshguard/whitelist"
+    owner : root
+    group : root
+    mode  : 0644
+
+- name: Reload sshguard service
+  sudo: yes
+  shell: /etc/init.d/sshguard restart
+  args:
+    executable: /bin/bash
+
+- name : Update SSH Authorized Leys.
+  template :
+    src   : "authorized_keys"
+    dest  : "/home/ubuntu/.ssh/authorized_keys"
+    owner : ubuntu
+    group : ubuntu
+    mode  : 0600

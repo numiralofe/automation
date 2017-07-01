@@ -1,0 +1,14 @@
+# Inventory file for machines contained within terraform-aws network
+
+[bastion]
+HOSTIP
+
+[terraform-aws:children]
+bastion
+
+[epg-aws:vars]
+ansible_ssh_private_key_file = files/id_rsa_aws
+ansible_python_interpreter = /usr/bin/python3
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+main_domain="MAINDOMAIN"
+aws_namespace="NAMESPACE"
