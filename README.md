@@ -4,9 +4,11 @@ Used tools:
 
 * Bash
 * Python
+* Chef
 * Terraform
 * Consul
 * Ansible
+
 
 It's also a showcase for beginners that might find my test code useful.
 
