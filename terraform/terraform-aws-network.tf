@@ -2,11 +2,11 @@
 
 # Web tier
 resource "aws_internet_gateway" "web" {
-	vpc_id = "${aws_vpc.epg-TAG.id}"
+	vpc_id = "${aws_vpc.terraform-TAG.id}"
 }
 
 resource "aws_route" "internet_access" {
-  route_table_id         = "${aws_vpc.epg-TAG.main_route_table_id}"
+  route_table_id         = "${aws_vpc.terraform-TAG.main_route_table_id}"
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = "${aws_internet_gateway.web.id}"
 }
@@ -18,7 +18,7 @@ resource "aws_nat_gateway" "nat" {
 }
 
 resource "aws_route_table" "private_route_table" {
-    vpc_id = "${aws_vpc.epg-TAG.id}"
+    vpc_id = "${aws_vpc.terraform-TAG.id}"
 }
 
 resource "aws_route" "private_route" {
@@ -29,7 +29,7 @@ resource "aws_route" "private_route" {
 
 resource "aws_route_table_association" "public_subnet_dmz_association" {
     subnet_id = "${aws_subnet.dmz.id}"
-    route_table_id = "${aws_vpc.epg-TAG.main_route_table_id}"
+    route_table_id = "${aws_vpc.terraform-TAG.main_route_table_id}"
 }
 
 resource "aws_route_table_association" "private_db_association" {
@@ -53,38 +53,38 @@ resource "aws_route_table_association" "private_intsrv_association" {
 }
 
 resource "aws_subnet" "mngt" {
-	vpc_id = "${aws_vpc.epg-TAG.id}"
+	vpc_id = "${aws_vpc.terraform-TAG.id}"
 	cidr_block = "10.10.1.0/24"
 	availability_zone = "${var.aws_default_region}"
 }
 
 resource "aws_subnet" "cc" {
-	vpc_id = "${aws_vpc.epg-TAG.id}"
+	vpc_id = "${aws_vpc.terraform-TAG.id}"
 	cidr_block = "10.10.2.0/24"
 	availability_zone = "${var.aws_default_region}"
 }
 
 resource "aws_subnet" "bus" {
-	vpc_id = "${aws_vpc.epg-TAG.id}"
+	vpc_id = "${aws_vpc.terraform-TAG.id}"
 	cidr_block = "10.10.3.0/24"
 	availability_zone = "${var.aws_default_region}"
 }
 
 resource "aws_subnet" "db" {
-	vpc_id = "${aws_vpc.epg-TAG.id}"
+	vpc_id = "${aws_vpc.terraform-TAG.id}"
 	cidr_block = "10.10.4.0/24"
 	availability_zone = "${var.aws_default_region}"
 }
 
 resource "aws_subnet" "dmz" {
-	vpc_id = "${aws_vpc.epg-TAG.id}"
+	vpc_id = "${aws_vpc.terraform-TAG.id}"
 	cidr_block = "10.10.5.0/24"
 	availability_zone = "${var.aws_default_region}"
 	map_public_ip_on_launch = true
 }
 
 resource "aws_subnet" "intsrv" {
-	vpc_id = "${aws_vpc.epg-TAG.id}"
+	vpc_id = "${aws_vpc.terraform-TAG.id}"
 	cidr_block = "10.10.6.0/24"
 	availability_zone = "${var.aws_default_region}"
 }
@@ -132,7 +132,7 @@ resource "aws_security_group" "managment" {
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
-	vpc_id = "${aws_vpc.epg-TAG.id}"
+	vpc_id = "${aws_vpc.terraform-TAG.id}"
 }
 
 resource "aws_security_group" "int_app" {
@@ -146,7 +146,7 @@ resource "aws_security_group" "int_app" {
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
-	vpc_id = "${aws_vpc.epg-TAG.id}"
+	vpc_id = "${aws_vpc.terraform-TAG.id}"
 }
 
 resource "aws_security_group" "web_db" {
@@ -167,5 +167,5 @@ resource "aws_security_group" "web_db" {
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 
-	vpc_id = "${aws_vpc.epg-TAG.id}"
+	vpc_id = "${aws_vpc.terraform-TAG.id}"
 }

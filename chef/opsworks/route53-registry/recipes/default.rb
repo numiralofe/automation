@@ -1,6 +1,6 @@
 client = Route53::Client.new(node[:app][:custom_access_key], node[:app][:custom_secret_key])
 
-name = "www.test.aptoide.com"
+name = "www.test.com"
 value = node[:opsworks][:instance][:public_ip]
 type = "A"
 zone_id = node[:app][:dns_zone_id]

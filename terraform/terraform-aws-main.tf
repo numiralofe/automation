@@ -5,7 +5,7 @@ variable "aws_namespace" {
 }
 
 # VPC
-resource "aws_vpc" "epg-TAG" {
+resource "aws_vpc" "terraform-TAG" {
 	cidr_block = "10.10.0.0/16"
 	enable_dns_hostnames = "true"
   enable_dns_support   = "true"
