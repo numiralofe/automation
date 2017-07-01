@@ -1,0 +1,9 @@
+[program:consul]
+command=/opt/consul-template/consul-template -config=/opt/consul-template/consul-template.d/consul-template.cfg -syslog
+numprocs=1
+user=root
+stopsignal=TERM
+autostart=true
+autorestart=true
+redirect_stderr=true
+stdout_logfile=auto

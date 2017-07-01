@@ -1,0 +1,72 @@
+#jinja2: trim_blocks:False
+    global
+        log         127.0.0.1 local2
+        chroot      /var/lib/haproxy
+        pidfile     /var/run/haproxy.pid
+        maxconn     4000
+        user        haproxy
+        group       haproxy
+        daemon
+
+        stats socket /var/run/haproxy.sock mode 777 level user
+
+    defaults
+        mode                    http
+        log                     global
+        option                  httplog
+        option                  dontlognull
+        option                  http-server-close
+        option forwardfor       except 127.0.0.0/8
+        option                  redispatch
+        retries                 3
+        timeout http-request    10s
+        timeout queue           1m
+        timeout connect         10s
+        timeout client          1m
+        timeout server          1m
+        timeout http-keep-alive 10s
+        timeout check           10s
+        maxconn                 3000
+
+    frontend https
+        bind *:443 ssl crt /etc/haproxy/ssl/cert.pem ciphers RC4-SHA:HIGH:!ADH
+        http-request set-header X-Forwarded-Proto https if { ssl_fc }
+        http-request set-header X-Forwarded-Port %[dst_port]
+        unique-id-header X-Request-Id
+        stats enable
+        stats refresh 5s
+        stats auth admin:admin
+        stats show-node
+        stats uri /lb-{{ env.taxonomy }}
+        stats show-legends
+        stats admin if TRUE
+
+        capture request header host len 50
+        capture cookie JSESSIONID len 50
+        capture request header X-Forwarded-For len 50
+
+        {% raw %}
+        {{range services -}}
+          {{range $tag, $services := service .Name|byTag -}}
+                {{if (in $tag ";cc") -}}
+                {{$domain := index ($tag | split ";") 0 -}}
+                {{$lbarea := index ($tag | split ";") 1 -}}
+                {{$service_name := (index $services 0).Name -}}
+          use_backend {{$service_name}} if {  hdr(Host) -i {{$domain}}   }
+        {{end -}}
+        {{end -}}
+        {{end -}}
+
+        {{range services -}}
+         {{range $tag, $services := service .Name|byTag -}}
+          {{if or (in $tag ";cc") }}
+         {{$service_name := (index $services 0).Name -}}
+         backend {{$service_name}}
+         balance roundrobin
+         {{range $services -}}
+         server {{.Node}} {{.Address}}:{{.Port}} check
+        {{end -}}
+        {{end -}}
+        {{end -}}
+        {{end -}}
+        {% endraw %}
