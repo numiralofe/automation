@@ -26,7 +26,13 @@ The tools involved in the process are:
 
 * Terraform (https://www.terraform.io/)
 * Ansible (https://www.ansible.com/)
-* Git 
+* Git
+
+# Code Files
+
+The code files used to execute this process:
+* [Terraform + Ansible](https://github.com/numiralofe/automation/blob/master/commitApp_POC/terraform)
+
 
 # Workflow
 
@@ -37,5 +43,9 @@ The tools involved in the process are:
 
 
 # Repositories
+
+The code available on git repos will represents the state of infrastructure and applications, at a glance, we can tell what’s currently deployed and how it’s configured, without having to worry about history or timing. This also makes it easy to create reusable code, as you don’t have to manually account for the current state, instead, we should just focus on describing desired state, and the process gets us from one state to the other automatically.
+
+# Code Files
 
 The code available on git repos will represents the state of infrastructure and applications, at a glance, we can tell what’s currently deployed and how it’s configured, without having to worry about history or timing. This also makes it easy to create reusable code, as you don’t have to manually account for the current state, instead, we should just focus on describing desired state, and the process gets us from one state to the other automatically.
