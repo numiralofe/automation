@@ -1,0 +1,4 @@
+# commitPoc-aws Main Vars
+---
+  env:
+    name: commitPoc
