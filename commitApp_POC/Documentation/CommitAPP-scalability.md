@@ -12,4 +12,4 @@ For persistent data we will be using an SQL DB Cluster that is load balanced usi
 
 * **Ephemeral data services**
 
-For ephmeral data, is created per region a redis cache cluster that can acomodate non persistent data.
+For ephemeral data, is created per region a redis cache cluster that can accommodate non persistent data.

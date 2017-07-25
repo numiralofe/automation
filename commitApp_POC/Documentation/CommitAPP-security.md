@@ -11,6 +11,14 @@ On all tiers communication between services is always over https.
 
 A reverse proxy host that re-routes/filter outbound traffic.
 
+```yaml
+resource "aws_route" "internet_access" {
+  route_table_id         = "${aws_vpc.commitApp-dev.main_route_table_id}"
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id             = "${aws_internet_gateway.web.id}"
+}
+```
+
 * **Network Traffic Segregation**
 
 Internal Traffic is segregated according to its origin as destination.

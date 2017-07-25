@@ -11,13 +11,13 @@ We have 5 important network tiers/groups:
 * **DMZ Tier**
 
 In this tier we have all services that have public information and do not require any type of authentication to access them.
- - A reverse proxy host that re-routes/filter internal traffic out
+ - A reverse proxy that re-routes/filter internal traffic out
  - a small cdn server to serve static content
 
 
 * **Services Tier**
 
-In this Tier we have services that provides end user and 3rd parties access to our products.
+In this Tier we have services that provides end user and 3rd parties access to our endpoints.
 
 
 * **API Tier**

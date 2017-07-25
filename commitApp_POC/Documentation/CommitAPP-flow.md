@@ -9,3 +9,5 @@ If those servers need to make requests to other servers on an different tier the
 If a database connection is required they will then make a request through the internal database VIP.
 
 All servers do not have external direct connectivity, as so, any requests made to external parties will be rerouted to a reverse proxy that is on the DMZ tier and handles those requests.
+
+![Flow Diagram](https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/Network-Services.png)

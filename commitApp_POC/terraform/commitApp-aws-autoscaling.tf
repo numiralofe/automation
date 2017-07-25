@@ -16,7 +16,7 @@ resource "aws_launch_configuration" "agent-lc" {
 }
 
 resource "aws_autoscaling_group" "agents" {
-    availability_zones = "${var.aws_default_region}"
+    availability_zones = ["${var.aws_default_region}"]
     name = "agents"
     max_size = "20"
     min_size = "1"
