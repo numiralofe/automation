@@ -14,9 +14,9 @@ Consider the case where the application needs to scale every service, and possib
 
 # INDEX
 
-[App Flow](https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/CommitAPP-flow.md)
-[Networking](https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/CommitAPP-network.md)
-[Security](https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/CommitAPP-security.md)
+* [App Flow](https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/CommitAPP-flow.md)
+* [Networking](https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/CommitAPP-network.md)
+* [Security](https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/CommitAPP-security.md)
 
 #  Used tools
 
