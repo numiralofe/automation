@@ -16,7 +16,7 @@ Consider the case where the application needs to scale every service, and possib
 
 * [App Flow](https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/CommitAPP-flow.md)
 * [Networking](https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/CommitAPP-network.md)
-* [Security](https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/CommitAPP-security.md)
+* [Security Concerns](https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/CommitAPP-security.md)
 * [Scalability](https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/CommitAPP-scalability.md)
 
 
@@ -26,11 +26,11 @@ The tools involved in the process are:
 
 * Terraform (https://www.terraform.io/)
 * Ansible (https://www.ansible.com/)
-* Git
+* Git (https://git-scm.com/)
 
 # Code Files
 
-The code files used to execute this process:
+Code files used to execute this process:
 * [Terraform + Ansible](https://github.com/numiralofe/automation/blob/master/commitApp_POC/terraform)
 
 

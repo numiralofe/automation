@@ -1,7 +1,7 @@
 # Security Concerns.
 
 
-We have 5 important security considerations:
+We have 6 important security considerations:
 
 * **All traffic is encrypted**
 
