@@ -23,6 +23,6 @@ In this Tier we have internal services that we use to manage our infrastructure.
 - logs
 - monitoring
 
-![Diagram - Simple Overview] (https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/Diagram-simpleView.png)
+![Diagram - Simple Overview]](Diagram-simpleView.png)
 
 ![Diagram - Expanded Overview] (https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/Diagram-expandedView.png)
