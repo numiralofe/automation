@@ -15,7 +15,7 @@ A reverse proxy host that re-routes/filter outbound traffic.
 
 Internal Traffic is segregated according to its origin as destination.
 
-* **Network rules can be changed at the code level**
+* **Network rules can be changed at the automation level**
 
 ```yaml
 resource "aws_security_group" "int_app" {
