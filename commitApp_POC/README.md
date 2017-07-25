@@ -37,9 +37,9 @@ The code files used to execute this process:
 # Workflow
 
 1. user creates the correspondent branch for the required repositories on git.
-2. terraform will fetch information from the created repo and based on that bootstraps the required infrastructure on aws.
+2. terraform will fetch information from the created branch and based on that bootstraps the required infrastructure on aws.
 3. ansible is triggered to perform initial configurations on the created infrastructure.
-4. user commits updates on the  correspondent branch with the creation status/info.
+4. user commits updates on the correspondent branch with creation status/info.
 
 
 # Repositories
