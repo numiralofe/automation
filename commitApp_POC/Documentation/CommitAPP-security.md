@@ -7,7 +7,7 @@ We have 5 important security considerations:
 
 On all tiers communication between services is always over https.
 
-* **All outbound traffis is routed through a proxy server**
+* **All outbound traffic is routed through a proxy server**
 
 A reverse proxy host that re-routes/filter outbound traffic.
 
