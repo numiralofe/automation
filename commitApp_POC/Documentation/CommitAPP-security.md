@@ -15,6 +15,21 @@ A reverse proxy host that re-routes/filter outbound traffic.
 
 Internal Traffic is segregated according to its origin as destination.
 
+* **Network rules can be changed at the code level**
+
+```yaml
+resource "aws_security_group" "int_app" {
+	name = "api app"
+	description = "Allow traffic into internal servers"
+
+	ingress {
+		from_port = 4000
+		to_port = 9002
+		protocol = "tcp"
+		cidr_blocks = ["0.0.0.0/0"]
+	}
+```
+
 * **Ephemeral SSH Service**
 
 Access is restricted for a single use case, ssh certs are short lived.
