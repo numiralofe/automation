@@ -40,14 +40,14 @@ resource "aws_instance" "lbredis01" {
 	subnet_id = "${aws_subnet.intsrv.id}"
 }
 
-resource "aws_instance" "lbcc01" {
+resource "aws_instance" "lbapi01" {
 	ami = "${var.aws_ubuntu_ami}"
 	availability_zone = "${var.aws_default_region}"
 	instance_type = "${var.aws_default_instance}"
-	tags = { "Name" = "lbcc01-${var.aws_namespace}" }
+	tags = { "Name" = "lbapi01-${var.aws_namespace}" }
 	security_groups = ["${aws_security_group.int_app.id}","${aws_security_group.managment.id}"]
 	key_name = "${var.aws_keypair}"
-	subnet_id = "${aws_subnet.cc.id}"
+	subnet_id = "${aws_subnet.api.id}"
 }
 
 resource "aws_instance" "api01" {
@@ -57,7 +57,7 @@ resource "aws_instance" "api01" {
 	tags = { "Name" = "api01-${var.aws_namespace}" }
 	security_groups = ["${aws_security_group.int_app.id}","${aws_security_group.managment.id}"]
 	key_name = "${var.aws_keypair}"
-	subnet_id = "${aws_subnet.cc.id}"
+	subnet_id = "${aws_subnet.api.id}"
 }
 
 resource "aws_instance" "api02" {
@@ -67,18 +67,18 @@ resource "aws_instance" "api02" {
 	tags = { "Name" = "api02-${var.aws_namespace}" }
 	security_groups = ["${aws_security_group.int_app.id}","${aws_security_group.managment.id}"]
 	key_name = "${var.aws_keypair}"
-	subnet_id = "${aws_subnet.cc.id}"
+	subnet_id = "${aws_subnet.api.id}"
 }
 
 
-resource "aws_instance" "lbbus01" {
+resource "aws_instance" "lbservices01" {
 	ami = "${var.aws_ubuntu_ami}"
 	availability_zone = "${var.aws_default_region}"
 	instance_type = "${var.aws_default_instance}"
-	tags = { "Name" = "lbbus01-${var.aws_namespace}" }
+	tags = { "Name" = "lbservices01-${var.aws_namespace}" }
 	security_groups = ["${aws_security_group.int_app.id}","${aws_security_group.managment.id}"]
 	key_name = "${var.aws_keypair}"
-	subnet_id = "${aws_subnet.bus.id}"
+	subnet_id = "${aws_subnet.services.id}"
 }
 
 resource "aws_instance" "service01" {
@@ -88,7 +88,7 @@ resource "aws_instance" "service01" {
 	tags = { "Name" = "service01-${var.aws_namespace}" }
 	security_groups = ["${aws_security_group.int_app.id}","${aws_security_group.managment.id}"]
 	key_name = "${var.aws_keypair}"
-	subnet_id = "${aws_subnet.bus.id}"
+	subnet_id = "${aws_subnet.services.id}"
 }
 
 resource "aws_instance" "lbdb01" {
@@ -128,5 +128,5 @@ resource "aws_instance" "static01" {
 	tags = { "Name" = "static01-${var.aws_namespace}" }
 	security_groups = ["${aws_security_group.int_app.id}","${aws_security_group.managment.id}"]
 	key_name = "${var.aws_keypair}"
-	subnet_id = "${aws_subnet.bus.id}"
+	subnet_id = "${aws_subnet.services.id}"
 }

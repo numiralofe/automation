@@ -37,13 +37,13 @@ resource "aws_route_table_association" "private_db_association" {
     route_table_id = "${aws_route_table.private_route_table.id}"
 }
 
-resource "aws_route_table_association" "private_cc_association" {
-    subnet_id = "${aws_subnet.cc.id}"
+resource "aws_route_table_association" "private_api_association" {
+    subnet_id = "${aws_subnet.api.id}"
     route_table_id = "${aws_route_table.private_route_table.id}"
 }
 
-resource "aws_route_table_association" "private_bus_association" {
-    subnet_id = "${aws_subnet.bus.id}"
+resource "aws_route_table_association" "private_services_association" {
+    subnet_id = "${aws_subnet.services.id}"
     route_table_id = "${aws_route_table.private_route_table.id}"
 }
 
@@ -58,13 +58,13 @@ resource "aws_subnet" "mngt" {
 	availability_zone = "${var.aws_default_region}"
 }
 
-resource "aws_subnet" "cc" {
+resource "aws_subnet" "api" {
 	vpc_id = "${aws_vpc.commitApp-dev.id}"
 	cidr_block = "10.10.2.0/24"
 	availability_zone = "${var.aws_default_region}"
 }
 
-resource "aws_subnet" "bus" {
+resource "aws_subnet" "services" {
 	vpc_id = "${aws_vpc.commitApp-dev.id}"
 	cidr_block = "10.10.3.0/24"
 	availability_zone = "${var.aws_default_region}"
