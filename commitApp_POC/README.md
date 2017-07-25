@@ -9,16 +9,14 @@ Consider the case where the application needs to scale every service, and possib
 # Problems we are trying to solve
 
 * We want to avoid the management problems and the uncertain of the upgrade consistency of our infrastructures and applications using classic provisioning.
-
 * We have to manage high available stateful services (databases etc…) that needs to be upgraded without downtime.
-
 * Manage independent blocks of infrastructure and applications handling the dependencies between them.
 
 # INDEX
 
-[App Flow] (https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/CommitAPP-flow.md)
-[Networking] (https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/CommitAPP-network.md)
-[Security] (https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/CommitAPP-security.md)
+[App Flow](https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/CommitAPP-flow.md)
+[Networking](https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/CommitAPP-network.md)
+[Security](https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/CommitAPP-security.md)
 
 #  Used tools
 

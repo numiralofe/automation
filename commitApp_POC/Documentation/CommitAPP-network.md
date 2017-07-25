@@ -1,6 +1,9 @@
 ## Network structure:
 Each server have roles now, and these roles dictate what it does.
 
+![Diagram - Simple Overview](https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/Diagram-simpleView.png)
+
+
 We have 5 important network tiers/groups:
 
 **DMZ Tier**
@@ -31,6 +34,5 @@ In this Tier we have internal services that we use to manage our infrastructure.
 - logs
 - monitoring
 
-![Diagram - Simple Overview](https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/Diagram-simpleView.png)
 
 ![Diagram - Expanded Overview](https://github.com/numiralofe/automation/blob/master/commitApp_POC/Documentation/Diagram-expandedView.png)
