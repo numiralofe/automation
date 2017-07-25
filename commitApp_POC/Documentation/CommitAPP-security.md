@@ -1,11 +1,24 @@
-# Information flow.
+# Security Concerns.
 
-Public https request come in through one of the listed domain names.
 
-public SSL offload is done at main proxy (HAProxy) then it passes the request to API or Services tier over HTTPS or to the static content servers.
+We have 5 important security considerations:
 
-If those servers need to make requests to other servers on an different tier then they will make a https request through the internal VIPs (api load balancer / services load balancer)
+* **All traffic is encrypted**
 
-If a database connection is required they will then make a request through the internal database VIP.
+On all tiers communication between services is always over https.
 
-All servers do not have external direct connectivity, as so, any requests made to external parties will be rerouted to a reverse proxy that is on the DMZ tier and handles those requests.
+* **All outbound traffis is routed through a proxy server**
+
+A reverse proxy host that re-routes/filter outbound traffic.
+
+* **Network Traffic Segregation**
+
+Internal Traffic is segregated according to its origin as destination.
+
+* **Ephemeral SSH Service**
+
+Access is restricted for a single use case, ssh certs are short lived.
+
+* **All servers are running ssh guard**
+
+This provides the ability to whitelist / blacklist access from specific network ranges.

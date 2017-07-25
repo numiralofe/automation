@@ -1,4 +1,4 @@
-# Information flow.
+# App flow.
 
 Public https request come in through one of the listed domain names.
 
